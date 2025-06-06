@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  width: 100vw;
+}
+
+-webkit-scrollbar {
+  display: none;            /* Chrome, Safari, and Opera */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* .dark セクションを完全に削除 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* モバイルでの横スクロール防止 */
+.container {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* 画像の最大幅制限 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* テーブルの横スクロール対応 */
+.table-container {
+  overflow-x: auto;
+  max-width: 100vw;
+}
+
+/* 画像モーダル用のスクロールバー非表示 - 強化版 */
+.image-modal-container,
+.image-modal-container *,
+[data-radix-dialog-content],
+[data-radix-dialog-content] * {
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+.image-modal-container::-webkit-scrollbar,
+.image-modal-container *::-webkit-scrollbar,
+[data-radix-dialog-content]::-webkit-scrollbar,
+[data-radix-dialog-content] *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* 全体的なスクロールバー非表示設定 - 強化版 */
+.no-scrollbar,
+.no-scrollbar * {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+  overflow: -moz-scrollbars-none !important; /* Firefox (older versions) */
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar *::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* サムネイル一覧の垂直スクロールバーのみ非表示 */
+.flex.gap-2.max-w-md.overflow-x-auto.ml-4::-webkit-scrollbar {
+  height: 6px; /* 水平スクロールバーの高さ */
+  width: 0 !important; /* 垂直スクロールバーの幅を0に */
+}
+
+.flex.gap-2.max-w-md.overflow-x-auto.ml-4::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.flex.gap-2.max-w-md.overflow-x-auto.ml-4::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar{
+  width: 0 !important;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track{
+  background: transparent;
+}
